@@ -1,0 +1,23 @@
+{
+  "name": "painting-mern",
+  "version": "1.0.0",
+  "description": "## this is just a test",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-star423/painting-MERN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-star423/painting-MERN/issues"
+  },
+  "homepage": "https://github.com/g-star423/painting-MERN#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
