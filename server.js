@@ -14,6 +14,23 @@ app.get('/paintings', (req,res) => {
     res.send('hello')
   })
 // })
+
+
+
+
+
+
+
+
+
+
+
+// LISTENER
+mongoose.connect('mongodb://localhost:27017/painting-MERN')
+mongoose.connection.once('open', () => {
+  console.log('connected to mongosh...')
+});
+
 // PORT
 app.listen(3001, () => {
   console.log('listening...')
