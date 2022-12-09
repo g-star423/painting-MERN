@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Painting = require('./models/paintings.js');
+const { response } = require('express');
 
 const app = express();
 
@@ -10,14 +11,14 @@ app.use(cors());
 
 
 // create route
-app.post('/paintings', (req,res) => {
+app.post('/paintings', (req, res) => {
   Painting.create(req.body, (err, createdPainting) => {
     res.json(createdPainting)
   })
 })
 
 // read route
-app.get('/paintings', (req,res) => {
+app.get('/paintings', (req, res) => {
   Painting.find({}, (err, foundPaintings) => {
     res.json(foundPaintings)
   })
@@ -25,7 +26,7 @@ app.get('/paintings', (req,res) => {
 
 // update route
 app.put('/paintings/:id', (req, res) => {
-  Painting.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPainting) => {
+  Painting.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPainting) => {
     res.json(updatedPainting);
   })
 })
@@ -36,6 +37,15 @@ app.delete('/paintings/:id', (req, res) => {
   Painting.findByIdAndDelete(req.params.id, (err, deletedPainting) => {
     res.json(deletedPainting);
     // res.json('animal deleted')
+  })
+})
+
+// seed route
+const paintingSeeds = require('./models/seedData.js')
+
+app.get('/seed', (req, res) => {
+  Painting.create(paintingSeeds, (error, data) => {
+    res.send('database seeded with: ' + data)
   })
 })
 
