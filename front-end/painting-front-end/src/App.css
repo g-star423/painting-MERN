@@ -13,6 +13,17 @@ img {
   width: 80%;
 }
 
+body {
+  background-color: #E5E5E5;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Limelight', cursive;
+  font-size: 50px;
+  color: #14213D;
+}
+
 h3 {
   text-align: center;
 }
@@ -21,3 +32,36 @@ h3 {
   display: flex;
   flex-wrap: wrap;
 }
+
+/* edit form */
+.edit-form label {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  font-size: 13px;
+}
+
+.submit, .button {
+  border-radius: 10px;
+  border-width: 1px;
+  margin-left: 3px;
+  max-width: 150px;
+}
+
+/* new form */
+.new-form label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.new-painting {
+  border-width: 0;
+  margin: auto;
+  padding: 10px;
+  max-width: 400px;
+}
+
+
+/* buttons for del and edit */
+
