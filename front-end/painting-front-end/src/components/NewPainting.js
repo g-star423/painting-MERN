@@ -47,14 +47,24 @@ const NewPainting = (props) => {
     }
     return (
 
-        <div>
-            <form onSubmit={handleNewSubmit}>
-                Painting Name:<input type="text" value={newPainting} onChange={handlePaintingChange} /><br />
-                Artist:<input type="text" value={newArtist} onChange={handleArtistChange} /><br />
-                Year:<input type="number" value={newYear} onChange={handleYearChange} /><br />
-                Style:<input type="text" value={newStyle} onChange={handleStyleChange} /><br />
-                Image URL:<input type="text" value={newImage} onChange={handleImageChange} /><br />
-                <input type="submit" />
+        <div className="card new-painting">
+            <form className="new-form" onSubmit={handleNewSubmit}>
+                <label>
+                Painting Name:<input type="text" value={newPainting} onChange={handlePaintingChange} />
+                </label>
+                <label>
+                Artist:<input type="text" value={newArtist} onChange={handleArtistChange} />
+                </label>
+                <label>
+                Year:<input type="number" value={newYear} onChange={handleYearChange} />
+                </label>
+                <label>
+                Style:<input type="text" value={newStyle} onChange={handleStyleChange} />
+                </label>
+                <label>
+                Image URL:<input type="text" value={newImage} onChange={handleImageChange} />
+                </label>
+                <input className="submit" type="submit" />
             </form>
         </div>
     )
