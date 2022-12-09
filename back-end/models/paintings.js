@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const paintingSchema = new mongoose.Schema({
     name: String,
@@ -8,6 +8,6 @@ const paintingSchema = new mongoose.Schema({
     image: String
 })
 
-const Painting = mongoose.model('Painting', paintingSchema)
+const Painting = mongoose.model('Painting', paintingSchema);
 
-module.exports = Painting
+module.exports = Painting;
