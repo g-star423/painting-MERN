@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -19,24 +20,24 @@ function App() {
   const [updateID, setUpdateID] = useState('')
 
 
-  //////////////////////////////////////
-  //event handlers
-  //////////////////////////////////////
-  const handleUpdatePaintingChange = (event) => {
-    setUpdatePaintingName(event.target.value)
-  }
-  const handleUpdateArtistChange = (event) => {
-    setUpdateArtist(event.target.value)
-  }
-  const handleUpdateYearChange = (event) => {
-    setUpdateYear(event.target.value)
-  }
-  const handleUpdateStyleChange = (event) => {
-    setUpdateStyle(event.target.value)
-  }
-  const handleUpdateImageChange = (event) => {
-    setUpdateImage(event.target.value)
-  }
+  // //////////////////////////////////////
+  // //event handlers
+  // //////////////////////////////////////
+  // const handleUpdatePaintingChange = (event) => {
+  //   setUpdatePaintingName(event.target.value)
+  // }
+  // const handleUpdateArtistChange = (event) => {
+  //   setUpdateArtist(event.target.value)
+  // }
+  // const handleUpdateYearChange = (event) => {
+  //   setUpdateYear(event.target.value)
+  // }
+  // const handleUpdateStyleChange = (event) => {
+  //   setUpdateStyle(event.target.value)
+  // }
+  // const handleUpdateImageChange = (event) => {
+  //   setUpdateImage(event.target.value)
+  // }
 
   const handleUpdateInput = (painting) => {
     setUpdateArtist(painting.artist)
@@ -55,6 +56,7 @@ function App() {
     updateAllPaintings()
   }, [])
 
+  // GET ALL PAINTINGS AND UPDATE IN STATE //
   const updateAllPaintings = () => {
     axios.get('http://localhost:3001/paintings').then((response) => {
       setAllPaintings(response.data)
@@ -89,18 +91,23 @@ function App() {
 
   return (
     <div>
-      <h1>My Painting Collection</h1>
+      <h1 className="mt-5">My Painting Collection</h1>
       <h3>Add a New Painting</h3>
       <NewPainting updateAllPaintings={updateAllPaintings}></NewPainting>
 
       <div className='card-container'>
         {allPaintings.map((painting) => {
           return (
-            <PaintingCard key={painting._id} painting={painting} handlePaintingDelete={handlePaintingDelete} handleUpdateInput={handleUpdateInput}></PaintingCard>
+            <PaintingCard
+              key={painting._id}
+              painting={painting}
+              handlePaintingDelete={handlePaintingDelete} handleUpdateInput={handleUpdateInput}
+              updateAllPaintings={updateAllPaintings}
+            />
           )
         })}
       </div>
-      <div className='update-container'>
+      {/* <div className='update-container'>
         <form onSubmit={(event) => handlePaintingUpdateSubmit(event, updateID)}>
           Painting Name:<input type="text" value={updatePainting} onChange={handleUpdatePaintingChange} /><br />
           Artist:<input type="text" value={updateArtist} onChange={handleUpdateArtistChange} /><br />
@@ -109,7 +116,7 @@ function App() {
           Image URL:<input type="text" value={updateImage} onChange={handleUpdateImageChange} /><br />
           <input type="submit" />
         </form>
-      </div>
+      </div> */}
     </div>
   );
 }
