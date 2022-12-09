@@ -52,7 +52,7 @@ const PaintingCard = (props) => {
     return (
         <div className="card p-2">
             <h3 className="mt-2">{props.painting.name}</h3>
-            <img src={props.painting.image} />
+            <img className="mb-2" src={props.painting.image} />
             <p>Painter: {props.painting.artist}</p>
             <p>Year Painted: {props.painting.year}</p>
             <p>Style: {props.painting.style}</p>
